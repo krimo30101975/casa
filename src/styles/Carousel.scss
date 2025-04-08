@@ -1,0 +1,73 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.carousel {
+    position: relative;
+    @include flex(center, center, row);
+
+    & .carousel-img {
+        @include w-h(100%, 400px);
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    & .carousel-btn {
+        position: absolute;
+        background: $transarent;
+        color: $white;
+        border: none;
+        font-size: 46px;
+        padding: 10px;
+        cursor: pointer;
+        transition: transform 0.5s ease-in-out;
+
+        &.left {
+        left: 10px;
+        transform: rotate(-90deg);
+        }
+
+        &.right {
+            transform: rotate(90deg);
+        right: 10px;
+        }
+    }
+
+    & .carousel-counter {
+        position: absolute;
+        display: flex;
+        color: $white;
+        font-size: 24px;
+        bottom: 10px;
+    }
+}
+
+/* Responsive : 2 colonnes sur tablette */
+@media screen and (max-width: 768px) {
+    .carousel {
+        & .carousel-img {
+            height: 300px;
+        }
+        & .carousel-btn {
+            font-size: 24px;
+            padding: 10px;
+        }
+    }
+}
+
+/* Responsive : 1 colonne sur mobile */
+@media screen and (max-width: 480px) {
+    .carousel {
+        & .carousel-img {
+            height: 255px;
+        }
+        & .carousel-btn {
+            font-size: 24px;
+            padding: 0px;
+        }
+    
+        & .carousel-counter {
+            display: none;
+        }
+    }
+    
+}

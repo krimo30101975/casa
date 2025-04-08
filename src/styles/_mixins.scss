@@ -1,0 +1,41 @@
+@mixin flex-centerAll($justify: center, $direction: column) { // @include flex-centerAll(center, column);
+  display: flex;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin flex($justify: center, $align: center, $direction: row) { // @include flex(center, center, row);
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+  }
+  
+@mixin flex-center($direction: row, $gap: 0) { // @include flex-center(column, 45px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+@mixin transition($props...) {
+  transition: $props;
+}
+
+@mixin w-h($width: 100%, $height: 100%) { // @include w-h(100%, 100%);
+  width: $width;
+  height: $height;
+}
+
+
+// Responsive media query
+@mixin respond($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: 576px) { @content; }
+  } @else if $breakpoint == medium {
+    @media (max-width: 768px) { @content; }
+  } @else if $breakpoint == large {
+    @media (max-width: 992px) { @content; }
+  }
+}

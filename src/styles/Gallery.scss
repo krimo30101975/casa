@@ -1,0 +1,86 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.gallery {
+    & .galerie {
+      display: grid;
+      grid-template-columns: repeat( 3, 1fr);
+      gap: 50px;
+      @include w-h(100%, auto);
+      padding: 50px;
+      border-radius: 25px;
+      background-color: $secondary-color;
+      & .galerie-item {
+        aspect-ratio: 1 / 1; /* Toujours un carré */
+        @include w-h(auto, 100%);
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px $shadow-1;
+        & .galerie-image {
+          @include w-h(auto, 100%);
+          object-fit: cover;
+          filter: brightness(70%); /* assombrit l’image */
+          transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        /* Zoom et assombrissement au survol */
+        & .galerie-image:hover {
+          transform: scale(1.20);
+          filter: brightness(50%);
+        }
+        & .galerie-title {
+          position: absolute;
+          bottom: 0;
+          padding: 10px;
+          @include w-h(100%, auto);
+          font-size: 18px;
+          font-weight: 700;
+          color: $secondary-color;
+          text-shadow: 0 3px 5px $shadow-2;
+        }
+      }
+    }
+}
+
+/* Responsive : 2 colonnes sur tablette */
+@media screen and (max-width: 768px) {
+  .gallery {
+    padding: 0px;
+    gap: 35px;
+    & .galerie {
+      grid-template-columns: repeat( 2, 1fr);
+      gap: 27px;
+      padding: 0px;
+      background-color: $white;
+      & .galerie-image {
+        @include w-h(100%, auto);
+      }
+      & .galerie-item {
+        aspect-ratio: 1 / 0.8; /* Toujours un carré */
+        & .galerie-title {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive : 1 colonne sur mobile */
+@media screen and (max-width: 480px) {
+  .gallery {
+    gap: 22px;
+    & .galerie {
+      grid-template-columns: 1fr;
+      gap: 27px;
+      padding: 0px;
+      background-color: $white;
+      & .galerie-item {
+        aspect-ratio: 1 / 0.8; /* Toujours un carré */
+        & .galerie-title {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+

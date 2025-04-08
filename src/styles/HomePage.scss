@@ -1,0 +1,21 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.homePage {
+    @include flex-centerAll(center, column);
+    gap: 50px;
+}
+
+/* Responsive : 2 colonnes sur tablette */
+@media screen and (max-width: 768px) {
+    .homePage {
+        gap: 35px;
+    }
+}
+
+/* Responsive : 1 colonne sur mobile */
+@media screen and (max-width: 480px) {
+    .homePage {
+        gap: 22px;
+    }
+}

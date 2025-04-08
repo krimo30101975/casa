@@ -1,0 +1,35 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.footer {
+    @include flex(center, center, column);
+    @include w-h(100%, 209px);
+    bottom: 0;
+    background: $black;
+    & img {
+        @include w-h(122px, auto);
+        padding-bottom: 30px;
+    }
+    & p {
+        font-size: 24px;
+        font-weight: 500;
+        color: white;
+    }
+}
+
+/* Responsive : 2 colonnes sur tablette */
+@media screen and (max-width: 768px) {
+}
+
+/* Responsive : 1 colonne sur mobile */
+@media screen and (max-width: 480px) {
+    .footer {
+        & p {
+            @include w-h(100%, auto);
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            color: white;
+        }
+    }
+}

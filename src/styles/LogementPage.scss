@@ -1,0 +1,209 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.logement-page {
+    @include flex-centerAll(center, column);
+    gap: 50px;
+    width: 100%;
+    & .bloc_infos {
+        @include flex-centerAll(center, column);
+        gap: 20px;
+        width: 100%;
+
+        & .bloc_text_host {
+            @include flex-centerAll(space-between, row);
+            width: 100%;
+
+            & .bloc_text {
+                @include flex-centerAll(center, column);
+                gap: 20px;
+
+                & .titleLocation {
+                    & h1 {
+                        font-size: $font-largeH1;
+                        font-weight: 500;
+                        color: $primary-color;
+                    }
+                    & p {
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+                }
+                & ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    height: auto;
+
+                    & .tag_list {
+                        @include flex(center, center, row);
+                        min-width: 115px;
+                        height: 25px;
+                        padding: 4px 12px;
+                        border-radius: 10px;
+                        list-style: none;
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: $white;
+                        background-color: $primary-color;
+                    }
+                }
+            }
+            & .bloc_host {
+                @include flex-centerAll(center, column);
+                min-width: 160px;
+                gap: 20px;
+
+                & .host {
+                    @include flex-centerAll(center, row);
+                    align-items: center;
+                    gap: 20px;
+
+                    & .host-info {
+                        @include flex-centerAll(center, column);
+                      text-align: right; /* Aligner le texte à droite si nécessaire */
+
+                      & .host-name {
+                          font-size: 16px; /* Taille des étoiles */
+                          font-weight: 500;
+                          color: $primary-color;
+                      }
+                    }
+                        
+                    & .host-picture {
+                        @include w-h(54px, 54px);
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                }
+                & .rating {
+
+                    & .star {
+                        font-size: 1.5rem; /* Taille des étoiles */
+                        margin: 0 2px;
+                    }
+                        
+                    & .red {
+                        color: $primary-color; /* Couleur des étoiles jaunes */
+                    }
+                        
+                    & .gray {
+                        color: $gray; /* Couleur des étoiles grises */
+                    }
+                }
+            }
+        }
+    }
+}
+
+.Dropdown_container {
+  display: flex;
+  gap: 30px;
+}
+
+/* Responsive : 2 colonnes sur tablette */
+@media screen and (max-width: 768px) {
+    .logement-page {
+        gap: 27px;
+
+        & .bloc_infos {
+            gap: 27px;
+
+            & .bloc_text_host {
+                @include flex-centerAll(center, column);
+                gap: 27px;
+
+                & .bloc_text {
+                    gap: 20px;
+
+                    & .titleLocation {
+                        & h1 {
+                            font-size: $font-mediumH1;
+                            padding-bottom: 14px;
+                        }
+                        & p {
+                            font-size: 16px;
+                        }
+                    }
+                    & ul {
+                        display: flex;
+                        gap: 20px;
+
+                        & .tag_list {
+                            font-size: 12px;
+                        }
+                    }
+                }
+                & .bloc_host {
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: row-reverse;
+                    & .rating {
+
+                        & .star {
+                            font-size: 18px; /* Taille des étoiles */
+                            margin: 0 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .Dropdown_container {
+    flex-direction: column;
+    gap: 27px;
+    }
+}
+
+/* Responsive : 1 colonne sur mobile */
+@media screen and (max-width: 480px) {
+    .logement-page {
+        gap: 20px;
+
+        & .bloc_infos {
+            gap: 27px;
+
+            & .bloc_text_host {
+                @include flex-centerAll(center, column);
+                gap: 27px;
+
+                & .bloc_text {
+                    gap: 20px;
+
+                    & .titleLocation {
+                        & h1 {
+                            font-size: $font-smallH1;
+                            padding-bottom: 10px;
+                        }
+                        & p {
+                            font-size: 14px;
+                        }
+                    }
+                    & ul {
+                        display: flex;
+                        gap: 20px;
+
+                        & .tag_list {
+                            font-size: 12px;
+                            font-weight: 500;
+                            padding: 4px 5px;
+                        }
+                    }
+                }
+                & .bloc_host {
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: row-reverse;
+                    & .rating {
+
+                        & .star {
+                            font-size: 14px; /* Taille des étoiles */
+                            margin: 0 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

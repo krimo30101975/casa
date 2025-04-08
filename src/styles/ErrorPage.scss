@@ -1,0 +1,67 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+#error-page {
+    @include flex-center($direction: column);
+    text-align: center;
+    gap: 40px;
+    width: 100%;
+    height: auto;
+    padding: 0px 54px 80px 54px;
+    //gap: 139px;
+    & .title_errorPage {
+        font-size: 248px;
+        font-weight: 800;
+        color: $primary-color;
+    }
+    & p {
+        font-size: 36px;
+        font-weight: 500;
+        color: $primary-color;
+    }
+    & .link_acueil {
+        font-size: 18px;
+        font-weight: 500;
+        color: black;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+/* Responsive : 2 colonnes sur tablette */
+@media screen and (max-width: 768px) {
+    #error-page {
+        & .title_errorPage {
+            font-size: 160px;
+        }
+        & p {
+            font-size: 25px;
+        }
+        & .PLink {
+            padding: 30px;
+            & .link_acueil {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+/* Responsive : 1 colonne sur mobile */
+@media screen and (max-width: 480px) {
+    #error-page {
+        gap: 50px;
+        padding: 50px 27px 80px 27px;
+        & .title_errorPage {
+            font-size: 100px;
+        }
+        & p {
+            font-size: 18px;
+        }
+        & .PLink {
+            padding: 30px;
+            & .link_acueil {
+                font-size: 14px;
+            }
+        }
+    }
+}

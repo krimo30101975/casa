@@ -1,0 +1,64 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.dropdownBloc {
+    @include w-h(100%, auto);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+
+    .topBar {
+    @include flex($justify:space-between);
+    padding: 15px;
+    background-color: $primary-color;
+    color: $white;
+    border-radius: 5px;
+    cursor: pointer;
+
+        .dropdown-icon {
+            transition: $transition;
+
+            &.rotated {
+            transform: rotate(-180deg);
+            }
+        }
+    }
+
+    .dropdown-content {
+    background-color: $secondary-color;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+        .dropdown-text {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, $transition;
+            transition-delay: 0s;
+            padding: 10px 15px;
+            background-color: $secondary-color;
+            color: $grey-dark;
+        }
+
+        &.open {
+            max-height: 300px;
+            opacity: 1;
+            transition-delay: 0.1s;
+
+            .dropdown-text {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.3s;
+            }
+        }
+
+        &.closing {
+            .dropdown-text {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition-delay: 0s;
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+// Couleurs
+$primary-color: #ff6060; // $primary-color
+$secondary-color: rgba(246, 246, 246); // $secondary-color
+$white: #ffffff; // $white
+$black: #000000; // $black
+$grey-dark : #333; // $grey-dark
+$gray: rgba(227, 227, 227, 1); // $gray
+$transarent : rgba(0, 0, 0, 0); // $transarent
+$transarent1 : rgba(0, 0, 0, 1); // $transarent1
+
+$shadow-1 : rgba(0, 0, 0, 0.1); // $shadow-1
+$shadow-2 : rgba(0, 0, 0, 0.747); // $shadow-2
+$shadow-3 : rgba(0, 0, 0, 0.25); // $shadow-3
+
+// Tailles
+$font-smallH1: 18px; // $font-smallH1
+$font-mediumH1: 26px; // $font-mediumH1
+$font-largeH1: 36px; // $font-largeH1
+
+// Padding
+$padding-null: 0;
+$padding-sm: 0px 20px 20px 20px;
+$padding-md: 0px 27px 27px 27px;
+$padding-lg: 0px 45px 45px 45px;
+
+// variables.scss
+$border-radius: 5px;
+
+$transition: transform 0.3s ease-in-out;
+
+$dropdown-padding: 10px 15px;

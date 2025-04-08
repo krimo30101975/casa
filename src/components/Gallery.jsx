@@ -1,17 +1,20 @@
 import React from 'react';
-import './Gallery.css';
+import { Link } from "react-router-dom";
+import logements from "../data/logements"; // Import du JSON
+import '../styles/Gallery.scss';
+import '../styles/_mixins.scss';
+import '../styles/_variables.scss';
 function Gallery() {
   return (
-    <div className="gallery">
-        <div className="gallery_container">
-            {[...Array(6)].map((_, index) => (
-                <figure className="gallery_card" key={index}>
-                    <figcaption className="card_title">
-                        <h2>Titre de la location</h2>
-                    </figcaption>
-                </figure>
+    <div className='gallery'>
+            <div className="galerie">
+            {logements.map((logement) => (
+                <Link to={`/logement/${logement.id}`} key={logement.id} className="galerie-item">
+                <img src={logement.cover} alt={logement.title} className="galerie-image" />
+                <h2 className="galerie-title">{logement.title}</h2>
+                </Link>
             ))}
-        </div>
+            </div>
     </div>
   );
 }

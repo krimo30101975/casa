@@ -1,25 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from "react-router";
-import './index.css'
-import App from './App'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom"; // ⬅️ à ajouter
+import MyRouter from "./routers/router";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import './styles/Main.scss';
 
-const root = document.getElementById("root");
-
-createRoot(root).render(
-  <StrictMode>
-   <BrowserRouter>
-     <Routes>
-       <Route index element={<App />} />
-     </Routes>
-   </BrowserRouter>
-  </StrictMode>,
-)
-
-//ReactDOM.createRoot(root).render(
-//    <BrowserRouter>
-//      <Routes>
-//        <Route index element={<App />} />
-//      </Routes>
-//    </BrowserRouter>
-//);
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <MyRouter />
+    </BrowserRouter>
+  </React.StrictMode>
+);
